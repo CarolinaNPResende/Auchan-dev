@@ -1,0 +1,51 @@
+<template>
+    <div class="parent">
+        <div class="simpleViewCases">
+            <table key={item.Id} for:each={cases} for:item="item">
+                <tr>
+                    <td>
+                        <article href="#section-3" class="simpleViewCasesCard" data-item={item.Id} onclick={handleClick} >
+                            <div class="slds-card__header">
+                                <h2 class="slds-card__header-title">
+                                    <span class="silverFont">{item.CaseNumber}</span>
+                                </h2>
+                                <div>
+                                    <p class="silverFont">{item.Type}</p>
+                                    <p class="silverFont">{item.SubType__c}</p>
+                                    <p>{item.Subject}</p>
+                                    <p class={item.statusClass}>{item.StatusName}</p>
+                                </div>
+                            </div>
+                        </article>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="section-3" class="expandedViewCases">
+            <table >
+                <tr>
+                    <td>
+                        <div if:true={renderCaseSelected}>
+                            <article class="expandedViewCasesCard">
+                                <div class="slds-card__header">
+                                    <h2 class="slds-card__header-title">
+                                        <span class="silverFont">{caseSelected.CaseNumber}</span>
+                                    </h2>
+                                    <div>
+                                        <p class="silverFont">{caseSelected.Type}</p>
+                                        <p class="silverFont">{caseSelected.SubType__c}</p>
+                                        <p>{caseSelected.Subject}</p>
+                                        <p class="description">{caseSelected.Description}</p>
+                                    </div>
+                                </div>
+                            </article>
+                            <div style="display: flex; justify-content: flex-end; margin: 5px">
+                                <lightning-button variant="brand" onclick={openCase} label={label.opencaseLabel}></lightning-button>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</template>

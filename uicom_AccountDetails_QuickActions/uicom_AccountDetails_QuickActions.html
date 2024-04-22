@@ -1,0 +1,24 @@
+<template>
+    <div if:true={loadedBarcodeActive} class="quickActions">
+        <div>
+            <lightning-combobox
+            placeholder={label.quickActionLabel}
+            options={options}
+            value={value}
+            onchange={handleChange}
+            class="slds-button_brand"
+            valign=TOP
+            style="width: 77%; margin-left: auto; margin-right: 0;"
+            ></lightning-combobox>
+        </div>
+        <div class="button" style="margin-bottom:1rem;">
+            <button class="slds-button slds-button_outline-brand slds-float_right" style="text-align: right;" onclick={createCase}>{label.createCaseLabel}</button>
+        </div>
+        <div class="button">
+            <button if:false={showSave} class="slds-button slds-button_outline-brand slds-float_right" onclick={editInfo}>{label.editLabel}</button>
+            <button if:true={showSave} class="slds-button slds-button_outline-brand slds-float_right" onclick={handleSave}>{label.saveLabel}</button>
+            <button if:true={showSave} class="slds-button slds-button_text-destructive slds-float_right" onclick={handleCancel}>{label.cancelLabel}</button>
+            <button class="slds-button slds-button_outline-brand slds-float_right" onclick={handleHistory}>{label.historyLabel}</button>
+        </div>
+    </div>
+</template>

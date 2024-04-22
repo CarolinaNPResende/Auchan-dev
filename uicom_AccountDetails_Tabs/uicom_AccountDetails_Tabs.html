@@ -1,0 +1,11 @@
+<template>
+    <lightning-tabset onchange={handleTabChange}>
+        <lightning-tab label={label.ARCD_UICOM_AccountDetTabs_LoyaltyCards}>
+          <c-uicom_-account-details_-transactions accountid={accountid}></c-uicom_-account-details_-transactions>
+        </lightning-tab>
+        <lightning-tab label={label.ARCD_UICOM_AccountDetTabs_Cases} onactive={handleCasesActive}>
+          <c-uicom_-account-details_-related-cases accountid={accountid}></c-uicom_-account-details_-related-cases>
+        </lightning-tab>
+
+    </lightning-tabset>
+  </template>

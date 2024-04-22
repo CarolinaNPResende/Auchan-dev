@@ -1,0 +1,92 @@
+article {
+  margin: 0.4rem;
+  margin-left: 1.5rem;
+  border-radius: 6px;
+  border: 1px solid grey;
+}
+
+.parent {
+  display: flex;
+  align-items: flex-start;
+}
+
+.simpleViewCases{
+  width: 30%;
+}
+  
+.expandedViewCases{
+  width: 68%;
+}
+
+.expandedViewCasesCard{
+  height: auto;
+  border: 1px solid #2574A9;
+}
+
+.simpleViewCasesCard:hover{
+  cursor: pointer;
+  --sds-c-card-color-background: #dee8f1;
+}
+
+.description{
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 12;
+  -webkit-box-orient: vertical;
+}
+ 
+button{
+  --button-padding-v: 20px;
+  --button-padding-h: 40px;
+  --button-font-size: 24px;
+}
+
+.silverFont{
+  color: grey;
+}
+
+.slds-grid {
+  margin-left: 1rem;
+  margin-top: 0.3rem;
+}
+
+.open-case{
+  background-color: rgb(15, 114, 226);
+  border-radius: 15px;
+  padding: 0.2rem;
+  padding-left: 0.6rem;
+  padding-right: 0.6rem;
+  width: fit-content;
+  margin-top: 0.4rem;
+}
+
+.closed-case{
+  background-color: #38DB96;
+  border-radius: 15px;
+  padding: 0.2rem;
+  padding-left: 0.6rem;
+  padding-right: 0.6rem;
+  width: fit-content;
+  margin-top: 0.4rem;
+}
+
+
+.cancelled-case{
+  background-color: red;
+  border-radius: 15px;
+  padding: 0.2rem;
+  padding-left: 0.6rem;
+  padding-right: 0.6rem;
+  width: fit-content;
+  margin-top: 0.4rem;
+}
+
+.other-case{
+  background-color: yellow;
+  border-radius: 15px;
+  padding: 0.2rem;
+  padding-left: 0.6rem;
+  padding-right: 0.6rem;
+  width: fit-content;
+  margin-top: 0.4rem;
+}

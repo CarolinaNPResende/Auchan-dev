@@ -1,0 +1,13 @@
+.box{
+    border: 0.2px solid #000;
+    height: auto;
+    width: 100%;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-color: silver;
+}
+
+hr{
+    width: 95%;
+    margin: auto;
+}

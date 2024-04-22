@@ -1,0 +1,30 @@
+<template>
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_12-of-12" style="margin-bottom: 1rem;">
+            <c-uicom_-page-header ongetsearchvalue={handleDetailsRecord} strtitle={label.accDetailsLabel} backbuttonlabel="BACK" backbuttonlink={backURL}></c-uicom_-page-header>
+        </div>
+        <div class="box">
+            <div class="slds-grid slds-gutters slds-col slds-size_12-of-12">
+                <div class="slds-col slds-size_9-of-12">
+                    <c-uicom_-account-details_-record recordid={accountId} style="padding-top:1rem" editmode={editMode}></c-uicom_-account-details_-record>
+                </div>
+                <div if:true={searchValue} >
+                </div>
+
+                <div class="slds-col slds-size_3-of-12" >
+                    <c-uicom_-account-details_-quick-actions recordid={accountId} onedit={handleEdit} onsave={handleSave} oncancel={handleCancel}></c-uicom_-account-details_-quick-actions>
+                </div>
+                <div if:true={searchValue} >
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="slds-col slds-size_12-of-12">
+                <c-uicom_-account-details_-tabs accountid={accountId} ongetsearchvalue={handleDetailsRecord}></c-uicom_-account-details_-tabs>
+            </div>
+            <div if:true={searchValue} >
+            </div>
+        </div>
+    </div>
+</template>

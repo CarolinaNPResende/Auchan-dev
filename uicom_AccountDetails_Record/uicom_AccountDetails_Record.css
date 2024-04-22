@@ -1,0 +1,12 @@
+:host {
+    --sds-c-checkbox-toggle-color-background: orange;
+    --sds-c-checkbox-toggle-color-background-checked: green;
+}
+
+.slds-card {
+    border-style: none;
+}
+
+.slds-col{
+    margin-left: 1rem;  	
+}
