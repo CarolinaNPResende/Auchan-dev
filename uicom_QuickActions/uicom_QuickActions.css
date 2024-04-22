@@ -1,0 +1,65 @@
+.container {
+    height: 8rem;
+  }
+
+h3{
+    margin-bottom: -1.5rem;
+}
+
+hr {
+    margin-bottom: 0.5rem;
+    border-top: 0.5px solid blue;
+    opacity: .1;
+    width: 100%;
+}
+
+.quickActionsContainer {
+    display: flex;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 0.2rem;
+  }
+
+  .firstAction {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    width: 200px;
+    height: 50px;
+    border: 0.5px solid rgba(0, 0, 255, .1);
+    border-radius: 15px; 
+    padding: 5px;
+    background-color:white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .otherActions {
+    grid-column-start: 2;
+    grid-column-end: 4;
+    width: 200px;
+    height: 50px;
+    border: 0.5px solid rgba(0, 0, 255, 0.1);
+    border-radius: 15px;
+    padding: 5px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.action:hover{
+    cursor: pointer;
+}
+
+.icon {
+    position:absolute;
+    flex: 0 0 30%;
+    margin-right: 5px;
+    margin-top: -0.8rem;
+  }
+
+p {
+    position:absolute;
+    flex: 0 0 70%;
+    margin-top: 1.5rem;
+}

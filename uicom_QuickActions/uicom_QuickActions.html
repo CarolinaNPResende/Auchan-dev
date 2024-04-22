@@ -1,0 +1,24 @@
+<template>
+    <div class="container">
+        <h3>{label.quickActionsLabel}</h3>
+        <hr>
+        <div class="quickActionsContainer">
+            <div if:true={printBarcodeActive} class="firstAction action" onclick={navigatePrintCard}>
+                <lightning-icon class="icon" size="x-small" icon-name="utility:copy_to_clipboard"></lightning-icon>
+                <p>{label.printCardLabel}</p>
+            </div>      
+            <div class="otherActions action" onclick={navigatePrintTicket}>
+                <lightning-icon class="icon" size="x-small" icon-name="utility:copy_to_clipboard"></lightning-icon>
+                <p>Print Ticket</p>
+            </div> 
+            <div class="otherActions action" onclick={navigatePrintTicket}>
+                <lightning-icon class="icon" size="x-small" icon-name="utility:copy_to_clipboard"></lightning-icon>
+                <p>Print Ticket</p>
+            </div>
+            <div class="otherActions action" onclick={navigatePrintTicket}>
+                <lightning-icon class="icon" size="x-small" icon-name="utility:copy_to_clipboard"></lightning-icon>
+                <p>Print Ticket</p>
+            </div>           
+        </div>
+    </div>
+</template>
