@@ -1,0 +1,32 @@
+<template>
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_12-of-12" style="margin-bottom: 1rem;">
+            <c-uicom_-page-header strtitle="PRINT CARD" backbuttonlabel="BACK" backbuttonlink={backURL}></c-uicom_-page-header>
+        </div>
+        <div if:true={renderAccountSelected} class="slds-col slds-size_6-of-12" style="margin-bottom:1rem;padding-right:1rem;">
+            <c-uicom_-selected-info-card if:true={account} icon="utility:user" clientidentifier={account.Name} value3={account.PersonBirthdate} value4={concatenedValues} value5={account.PersonMailingAddress} type="account" oneditaccount={handleEditAccount}></c-uicom_-selected-info-card>
+        </div>
+        <div if:true={renderCardSelected} class="slds-col slds-size_6-of-12" style="margin-bottom:1rem;padding-left:1rem;">
+            <c-uicom_-selected-info-card if:true={cardSelected} icon="utility:user" clientidentifier={cardSelected.ExternalId__c} value3={lastTransaction} value4={cardSelected.StatusName} value5={balance} type="card" oneditcard={handleEditCard}></c-uicom_-selected-info-card>
+        </div>
+        <div class="slds-col slds-size_12-of-12">
+            <article class="slds-card">
+                <div class="slds-card__header">
+                    <div class="slds-card__header-title">
+                        <c-uicom_-quick-action-header strtitle={headerTitle} profileimage={headerIcon}></c-uicom_-quick-action-header>
+                    </div>
+                    <div style="margin-top:1rem;margin-bottom:1rem;height: 1px; background: rgb(165, 159, 159); width: 90hw"></div>
+                    <div class="slds-card__body slds-card__body_inner">
+                        <div if:true={isLoading} style="height: 200px; position:relative">
+                            <lightning-spinner variant="base" size="medium"></lightning-spinner>
+                        </div>
+                        <c-uicom_-search-engine if:true={showSearchEngine} onselected={handleSearchEngineSelected}></c-uicom_-search-engine>
+                        <c-uicom_-print-card_-cards-list onselected={handleCardSelected} if:true={showCardList} cards={loyaltyCards}></c-uicom_-print-card_-cards-list>
+                        
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+    <c-uicom_-success-modal if:true={isModalOpen} titletext={label.UICOM_taskComp} successmessage={label.UICOM_printing} finishbuttontext={label.UICOM_returnDashboard} onclose={closeModal}></c-uicom_-success-modal>
+</template>

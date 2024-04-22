@@ -1,0 +1,40 @@
+<template>
+    <div if:false={noCardsRetreived} class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_12-of-12" style="margin-bottom: 1rem;">
+            <fieldset class="slds-form-element">
+                <div class="slds-form-element__control">
+                    <template for:each={cards} for:item="item">
+                        <template if:false={item.isClosed}>
+                            <span key={item.Id} class="slds-radio" style="margin-bottom: 0.5rem;">
+                                <input type="radio" id={item.ExternalId__c} value={item.ExternalId__c} name="default"/>
+                                <label class="slds-radio__label" for={item.ExternalId__c}>
+                                    <span class="slds-radio_faux"></span>
+                                    <lightning-icon icon-name="utility:user" size="x-small"></lightning-icon>
+                                    <p >Carte nº {item.ExternalId__c}</p>
+                                    <p if:true={item.lastTransaction}>Last Transaction: {item.lastTransaction}</p>
+                                </label>
+                            </span>
+                        </template>
+                        <template if:true={item.isClosed}>
+                            <span key={item.Id} class="slds-radio" style="margin-bottom: 0.5rem;">
+                                <input type="radio" id={item.ExternalId__c} value={item.ExternalId__c} name="default" disabled/>
+                                <label class="slds-radio__label" for={item.ExternalId__c}>
+                                    <span class="slds-radio_faux"></span>
+                                    <lightning-icon icon-name="utility:user" size="x-small"></lightning-icon>
+                                    <p >Carte nº {item.ExternalId__c}</p>
+                                    <p if:true={item.lastTransaction}>Last Transaction: {item.lastTransaction}</p>
+                                </label>
+                            </span>
+                        </template>
+                    </template>
+                </div>
+            </fieldset>
+        </div>
+        <div class="slds-col slds-size_12-of-12">
+            <lightning-button variant="brand" label="Print Card" onclick={handleClick}></lightning-button>
+        </div>
+    </div>
+    <div if:true={noCardsRetreived}>
+        <h2>Looks like this account has no loyalty cards or an error has ocurrered. Try again or change the account.</h2>
+    </div>
+</template>
