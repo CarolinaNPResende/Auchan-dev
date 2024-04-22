@@ -1,0 +1,73 @@
+<template>
+    <p class="transationHistory">{label.UICOM_History}</p>
+    <template if:false={noTransactions}>
+        <template if:false={olcasactive} for:each={newTransactions} for:item="item">
+            <div key={item.transactionId} class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_8-of-12">
+                    <p style="font-size:11px; color: grey;">{item.tDate}</p>
+                    <p style="font-weight:700;">{item.typeName}</p>
+                    <hr>
+                </div>
+                <div class="slds-col slds-size_4-of-12">
+                    <span if:true={item.isNegative} class="slds-float_right" style="color: red; font-weight:700;">{item.points}</span>
+                    <span if:false={item.isNegative} class="slds-float_right" style="color: #38DB96; font-weight:700;">{item.points}</span>
+                </div>   
+            </div>
+        </template>
+    </template>
+    <template if:true={olcasactive} for:each={fristtransactions} for:item="item">
+        <div key={item.transactionId} class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_8-of-12">
+                <p style="font-size:11px; color: grey;">{item.tDate}</p>
+                <p style="font-weight:700;">{item.typeName}</p>
+                <hr>
+            </div>
+            <div class="slds-col slds-size_4-of-12">
+                <span if:true={item.isNegative} class="slds-float_right" style="color: red; font-weight:700;">{item.points}</span>
+                <span if:false={item.isNegative} class="slds-float_right" style="color: #38DB96; font-weight:700;">{item.points}</span>
+            </div>   
+        </div>
+    </template>
+    <template if:true={noTransactions}>
+        <h3>{label.UICOM_NoTransaction}</h3>
+    </template>
+    <template if:true={showolcasmessage}>
+        <h3>{label.UICOM_Select}</h3>
+    </template>
+    <template if:true={isModalOpen}>
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container" style="min-width: 70vw;">
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title={label.UICOM_Close} onclick={closeModal}>
+                        <lightning-icon icon-name="utility:close"
+                            alternative-text={label.UICOM_Close}
+                            variant="inverse"
+                            size="small" ></lightning-icon>
+                        <span class="slds-assistive-text">{label.UICOM_Close}</span>
+                    </button>
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">{label.UICOM_Fullhist}</h2>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <lightning-datatable
+                            if:false={olcasactive}
+                            key-field="id"
+                            data={transactions.transactions}
+                            columns={comarchColumns}
+                            hide-checkbox-column>
+                    </lightning-datatable>
+                    <lightning-datatable
+                            if:true={olcasactive}
+                            key-field="id"
+                            data={transactions.transactionsOlcas}
+                            columns={olcasColumns}
+                            hide-checkbox-column>
+                    </lightning-datatable>
+                </div>
+                <footer class="slds-modal__footer">
+                    <button class="slds-button slds-button_brand" onclick={closeModal}>{label.UICOM_Close}</button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+</template>

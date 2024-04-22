@@ -1,0 +1,15 @@
+.card{
+    border-radius: 6px;
+    border: 1px solid silver;
+    margin-left: 1rem;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+
+.fistColumn{
+    padding-left: 1rem;
+}
+
+.secondColumn{
+    padding-right: 1rem;
+}

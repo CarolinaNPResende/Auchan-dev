@@ -1,0 +1,16 @@
+.leftCard{
+    border-radius: 6px;
+    border: 1px solid #2574A9;
+    margin-left: 1rem;
+    padding: 1rem;
+}
+
+.firstElement{
+    text-align: center;
+}
+
+.secondElement{
+    border-left: 1px solid silver;
+    height: auto;
+    padding-left: 1rem;
+}

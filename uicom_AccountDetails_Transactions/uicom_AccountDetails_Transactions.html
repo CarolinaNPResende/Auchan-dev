@@ -1,0 +1,20 @@
+<template>
+    <div if:true={isLoading} style="height: 200px; position:relative">
+        <lightning-spinner variant="base" size="medium"></lightning-spinner>
+    </div>
+    <div if:false={isLoading} class="slds-grid slds-wrap">
+        <template if:false={hasError}>
+            <div class="slds-grid slds-wrap slds-size_7-of-12 leftCard">
+                <div class="slds-col slds-size_4-of-12 firstElement" style="padding-right: 1rem;">
+                    <c-uicom_-account-details_-transactions_-balance balance={balance} lasttransaction={lastTransaction} onseehistory={seeHistory}></c-uicom_-account-details_-transactions_-balance>
+                </div>
+                <div class="slds-col slds-size_8-of-12 secondElement" style="padding-right: 1rem;">
+                    <c-uicom_-account-details_-transactions_-list olcasactive={olcasActive} showolcasmessage={showOlcasMessage} transactions={transactions} fristtransactions={firstTransactions}></c-uicom_-account-details_-transactions_-list>
+                </div>
+            </div>
+            <div class="slds-col slds-size_5-of-12" style="width: 38.5%;">
+                <c-uicom_-account-details_-transactions_-loyalty-cards accountid={accountid} cards={loyaltyCards} loyaltynumber={account.LoyaltyAccountNumber__pc} olcasactive={olcasActive} onseedetails={seeDetails}></c-uicom_-account-details_-transactions_-loyalty-cards>
+            </div>
+        </template>
+    </div>
+</template>

@@ -1,0 +1,8 @@
+<template>
+    <div class="verticalAlignment">
+        <p style="color: grey;"><lightning-formatted-text value={label.UICOM_Cagnotte}></lightning-formatted-text></p>
+        <p class="balance"><lightning-formatted-text value={balance}></lightning-formatted-text></p>
+        <p class="lastTransaction"><lightning-formatted-text value={lasttransaction}></lightning-formatted-text></p>
+        <button class="slds-button slds-button_outline-brand" onclick={seeHistory}>{label.UICOM_History}</button>
+    </div>
+</template>

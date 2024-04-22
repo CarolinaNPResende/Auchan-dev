@@ -1,0 +1,32 @@
+<template>
+    <template for:each={cards} for:item="item">
+        <div class="card" key={item.ExternalId__c}>
+            <lightning-card >
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-size_8-of-12 fistColumn">
+                        <p style="color:grey; font-weight: 400; font-size: 11px; margin-bottom:0.2rem;">{item.CardTypeCalc__c}</p>
+                        <p>{item.ExternalId__c}</p>
+                        <p style="color:grey; font-weight: 400; font-size: 11px; margin-bottom:0.2rem; margin-top: 0.5rem;">{label.UICOM_AccNumber}</p>
+                        <p>{loyaltynumber}</p>
+                    </div>
+
+                    <div class="slds-col slds-size_4-of-12 slds-float_right secondColumn" >
+                        <button class="slds-button slds-button_outline-brand slds-float_right" if:true={olcasactive} data-item={item.Id} slot="actions" onclick={seeDetails}>{label.UICOM_Details}</button>
+                    </div>
+                </div>
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-size_12-of-12" style="padding-right: 1rem;">
+                        <lightning-button-icon  if:true={printBarcodeActive} 
+                                                class="slds-float_right" 
+                                                icon-name="utility:print" 
+                                                data-external={item.ExternalId__c} 
+                                                data-id={item.Id} 
+                                                alternative-text={label.UICOM_PrintCard} 
+                                                onclick={printCard}>
+                        </lightning-button-icon>
+                    </div>
+                </div> 
+            </lightning-card>
+        </div>
+    </template>
+</template>
