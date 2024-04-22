@@ -1,0 +1,13 @@
+.sideBarHeader{
+    text-align: center;
+}
+
+img{
+    width: 3.5rem;
+    vertical-align:middle;
+}
+
+h1{
+    vertical-align:middle;
+    display: inline-block;
+}

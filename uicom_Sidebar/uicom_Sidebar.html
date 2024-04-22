@@ -1,0 +1,44 @@
+<template>
+    <div class="sticky-sidebar" style="width: fit-content;">
+        <nav class="slds-nav-vertical">
+            <div class="slds-nav-vertical__section">
+                <div class="sideBarHeader">
+                    <img src={diamondLogo} />
+                    <h1 style="color: #447ABE;" class="slds-nav-vertical__title">{label.UICOM_Diamond} <br> {label.UICOM_Client}</h1>
+                </div>
+
+                <h2 id="entity-header" class="slds-nav-vertical__title">{label.UICOM_Sidebar_ClientRelation}</h2>
+                <ul aria-describedby="entity-header">
+                    <template for:each={processedMenuItems} for:item="item">
+                        <template if:true={item.isSelected}>
+                            <li key={item.id} class="slds-nav-vertical__item slds-is-active">
+                                <c-uicom_-sidebar_-item
+                                    if:true={salesforceURL}
+                                    item={item}
+                                    salesforceurl={salesforceURL}
+                                ></c-uicom_-sidebar_-item>
+                            </li>
+                        </template>
+                        <template if:false={item.isSelected}>
+                            <li key={item.id} class="slds-nav-vertical__item">
+                                <c-uicom_-sidebar_-item
+                                    if:true={salesforceURL}
+                                    item={item}
+                                    salesforceurl={salesforceURL}
+                                ></c-uicom_-sidebar_-item>
+                            </li>
+                        </template>
+                    </template>
+                    <template if:false={isGuestUser}>
+                        <li class="slds-nav-vertical__item">
+                            <a href={logoutLink} class="slds-nav-vertical__action"> 
+                                <lightning-icon icon-name="utility:logout" size="x-small"></lightning-icon>
+                                {label.UICOM_Sidebar_Logout}
+                            </a>
+                        </li>
+                    </template>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</template>
